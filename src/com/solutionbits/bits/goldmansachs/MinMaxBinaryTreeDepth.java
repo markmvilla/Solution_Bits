@@ -5,17 +5,22 @@ import com.solutionbits.bits.util.Node;
 
 public class MinMaxBinaryTreeDepth {
 
-	public static int run(String string){
+	public static int run(String method){
         BinaryTree tree = new BinaryTree(); 
         tree.root = new Node(1);  
         tree.root.left = new Node(2); 
         tree.root.right = new Node(3); 
         tree.root.left.left = new Node(4);
-        if(string.equals("max"))
-        	return recursiveMax(tree.root);
-        else if(string.equals("min"))
-        	return recursiveMin(tree.root);
-        else return -1;
+		switch(method){
+		case "max" : 
+			return recursiveMax(tree.root);
+		
+		case "min" : 
+			return recursiveMin(tree.root);
+			
+		default:
+			return -1;
+		}
 	}
 	
 	public static int recursiveMin(Node current) {
